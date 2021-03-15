@@ -1,1 +1,1 @@
-# VueDemo
+Proyecto que simula una autenticación de usuario mediante un API en .Net Core 5, configurada con identity y JWT (claims). La capa de consumo, es un proyecto de Vue.js con Vuex y Rutas.

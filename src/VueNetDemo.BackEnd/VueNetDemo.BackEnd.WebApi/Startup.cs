@@ -23,7 +23,6 @@ namespace VueNetDemo.BackEnd.WebApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -104,8 +103,7 @@ namespace VueNetDemo.BackEnd.WebApi
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -128,10 +126,77 @@ namespace VueNetDemo.BackEnd.WebApi
 
             app.UseAuthorization();
 
+            SeedData(userManager, roleManager);
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
         }
+
+        #region Identity seeds for roles and users
+        public static void SeedRoles(RoleManager<IdentityRole> roleManager)
+        {
+            if (!roleManager.RoleExistsAsync("Admin").Result)
+            {
+                IdentityRole role = new IdentityRole();
+                role.Name = "Admin";
+
+                IdentityResult roleResult = roleManager.CreateAsync(role).Result;
+            }
+
+
+            if (!roleManager.RoleExistsAsync("Customer").Result)
+            {
+                IdentityRole role = new IdentityRole();
+                role.Name = "Customer";
+
+                IdentityResult roleResult = roleManager.CreateAsync(role).Result;
+            }
+        }
+
+        public static void SeedUsers(UserManager<ApplicationUser> userManager)
+        {
+            if (userManager.FindByNameAsync("user1").Result == null)
+            {
+                var role = "Admin";
+                ApplicationUser user = new ApplicationUser();
+
+                user.UserName = "user1";
+                user.Email = "user1@localhost";
+
+                IdentityResult result = userManager.CreateAsync(user, "user").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, role).Wait();
+                }
+            }
+
+            {
+                if (userManager.FindByNameAsync("user2").Result == null)
+                {
+                    var role = "Customer";
+                    ApplicationUser user = new ApplicationUser();
+
+                    user.UserName = "user2";
+                    user.Email = "user2@localhost";
+
+                    IdentityResult result = userManager.CreateAsync(user, "user").Result;
+
+                    if (result.Succeeded)
+                    {
+                        userManager.AddToRoleAsync(user, role).Wait();
+                    }
+                }
+            }
+        }
+
+        public static void SeedData(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        {
+            SeedRoles(roleManager);
+            SeedUsers(userManager);
+        }
+        #endregion
     }
 }

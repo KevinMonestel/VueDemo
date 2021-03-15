@@ -24,8 +24,8 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<Object> GetUserProfile() {
-            string userId = User.Claims.First(c => c.Type == "id").Value;
+        public async Task<Object> Get() {
+            string userId = User.Claims.First(c => c.Type.Contains("nameidentifier")).Value;
             var user = await _userManager.FindByIdAsync(userId);
 
             return new
@@ -37,7 +37,7 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
 
         [HttpGet]
         [Authorize(Roles ="Admin")]
-        public string GetForAdmin()
+        public string OnlyAdminMethod()
         {
             return "Web method for Admin";
         }

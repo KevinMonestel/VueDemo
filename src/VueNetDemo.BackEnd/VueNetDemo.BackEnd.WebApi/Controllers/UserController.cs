@@ -33,7 +33,7 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<Object> PostApplicationUser(ApplicationUserModel model)
+        public async Task<Object> Register(ApplicationUserModel model)
         {
             model.Role = "Admin";
 
@@ -60,23 +60,24 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var user = await _userManager.FindByNameAsync(model.UserName);
+            IdentityOptions _options = new IdentityOptions();
+            List<Claim> claims = new List<Claim>();
 
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                //Get role assigned to the user
-                var role = await _userManager.GetRolesAsync(user);
+                var roles = await _userManager.GetRolesAsync(user);
 
-                IdentityOptions _options = new IdentityOptions();
+                claims.Add(new Claim(_options.ClaimsIdentity.UserIdClaimType, user.Id.ToString()));
+                claims.Add(new Claim(_options.ClaimsIdentity.UserNameClaimType, user.UserName));
+                claims.Add(new Claim(_options.ClaimsIdentity.EmailClaimType, user.Email));
+                foreach(var role in roles)
+                {
+                    claims.Add(new Claim(_options.ClaimsIdentity.RoleClaimType, role));
+                }
 
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
-                    Subject = new ClaimsIdentity(new Claim[]
-                    {
-                        new Claim("id",user.Id.ToString()),
-                        new Claim("username", user.UserName),
-                        new Claim("email", user.Email),
-                        new Claim(_options.ClaimsIdentity.RoleClaimType, role.FirstOrDefault())
-                    }),
+                    Subject = new ClaimsIdentity(claims),
                     Expires = DateTime.UtcNow.AddDays(1),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
                 };
@@ -86,10 +87,10 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
                 var securityToken = tokenHandler.CreateToken(tokenDescriptor);
                 var token = tokenHandler.WriteToken(securityToken);
 
-                return Ok(new { type = "Bearer", token = token, expiresIn = tokenDescriptor.Expires });
+                return Ok(new { type = "bearer", token = token, expiresIn = tokenDescriptor.Expires });
             }
-            else
-                return Unauthorized(new { message = "Username or password is incorrect." });
+            
+            return Unauthorized(new { message = "Username or password is incorrect." });
         }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8jawjy60KRANFCKnJSAy2DvCZgcEzDMODBE7VxBGZ1pUtTX1I/+oFX0D3kdLH4ZkVY76sJ6lz3yW301KPiPVEQ==",
+  "dgSpecHash": "pLyd/rhgzagR1tAqw0qAwDTyFlyOFBbcr4Lz0R6lDoVQlYjKW+4Ovd6PpN96xIJL7ARfYqLdUmOj89CnE4jDzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueNetDemo\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\VueNetDemo.BackEnd.WebApi.csproj",
+  "projectFilePath": "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\VueNetDemo.BackEnd.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kevin.monestel\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kevin.monestel\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.4\\microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512",

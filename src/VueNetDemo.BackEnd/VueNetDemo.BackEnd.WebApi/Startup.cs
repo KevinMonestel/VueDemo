@@ -61,7 +61,7 @@ namespace VueNetDemo.BackEnd.WebApi
             {
                 x.RequireHttpsMetadata = false;
                 x.SaveToken = false;
-                x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
@@ -99,7 +99,6 @@ namespace VueNetDemo.BackEnd.WebApi
                                 }
                             },
                             new string[] {}
-
                     }
                 });
             });

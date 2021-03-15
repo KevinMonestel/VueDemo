@@ -15,7 +15,9 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
     public class UserProfileController : ControllerBase
     {
         private UserManager<ApplicationUser> _userManager;
-        public UserProfileController(UserManager<ApplicationUser> userManager)
+        public UserProfileController(
+            UserManager<ApplicationUser> userManager
+            )
         {
             _userManager = userManager;
         }
@@ -23,8 +25,9 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
         [HttpGet]
         [Authorize]
         public async Task<Object> GetUserProfile() {
-            string userId = User.Claims.First(c => c.Type == "UserID").Value;
+            string userId = User.Claims.First(c => c.Type == "id").Value;
             var user = await _userManager.FindByIdAsync(userId);
+
             return new
             {
                  user.Email,
@@ -37,20 +40,6 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
         public string GetForAdmin()
         {
             return "Web method for Admin";
-        }
-
-        [HttpGet]
-        [Authorize(Roles = "Customer")]
-        public string GetCustomer()
-        {
-            return "Web method for Customer";
-        }
-
-        [HttpGet]
-        [Authorize(Roles = "Admin,Customer")]
-        public string GetForAdminOrCustomer()
-        {
-            return "Web method for Admin or Customer";
         }
     }
 }

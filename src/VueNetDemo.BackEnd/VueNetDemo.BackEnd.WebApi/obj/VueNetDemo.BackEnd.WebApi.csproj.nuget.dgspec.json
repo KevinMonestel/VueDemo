@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueNetDemo\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\VueNetDemo.BackEnd.WebApi.csproj": {}
+    "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\VueNetDemo.BackEnd.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueNetDemo\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\VueNetDemo.BackEnd.WebApi.csproj": {
+    "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\VueNetDemo.BackEnd.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueNetDemo\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\VueNetDemo.BackEnd.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\VueNetDemo.BackEnd.WebApi.csproj",
         "projectName": "VueNetDemo.BackEnd.WebApi",
-        "projectPath": "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueNetDemo\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\VueNetDemo.BackEnd.WebApi.csproj",
+        "projectPath": "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\VueNetDemo.BackEnd.WebApi.csproj",
         "packagesPath": "C:\\Users\\kevin.monestel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueNetDemo\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\obj\\",
+        "outputPath": "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

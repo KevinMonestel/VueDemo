@@ -33,7 +33,7 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<Object> Register(ApplicationUserModel model)
+        public async Task<IActionResult> Register(ApplicationUserModel model)
         {
             model.Role = "Admin";
 

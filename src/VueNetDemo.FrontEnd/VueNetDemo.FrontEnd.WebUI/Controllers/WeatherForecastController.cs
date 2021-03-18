@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace VueNetDemo.FrontEnd.WebUI.Controllers
 {
-    [ApiController]
+    [Controller]
     [Route("[controller]/[action]")]
     public class WeatherForecastController : Controller
     {

@@ -16,13 +16,13 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class AccountController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _singInManager;
         private readonly ApplicationSettings _appSettings;
 
-        public UserController(
+        public AccountController(
             UserManager<ApplicationUser> userManager, 
             SignInManager<ApplicationUser> signInManager,
             IOptions<ApplicationSettings> appSettings)
@@ -59,38 +59,55 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
+            var tokenModel = new LoginTokenModel();
             var user = await _userManager.FindByNameAsync(model.UserName);
             IdentityOptions _options = new IdentityOptions();
             List<Claim> claims = new List<Claim>();
 
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+            try
             {
-                var roles = await _userManager.GetRolesAsync(user);
-
-                claims.Add(new Claim(_options.ClaimsIdentity.UserIdClaimType, user.Id.ToString()));
-                claims.Add(new Claim(_options.ClaimsIdentity.UserNameClaimType, user.UserName));
-                claims.Add(new Claim(_options.ClaimsIdentity.EmailClaimType, user.Email));
-                foreach(var role in roles)
+                if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
                 {
-                    claims.Add(new Claim(_options.ClaimsIdentity.RoleClaimType, role));
+                    var roles = await _userManager.GetRolesAsync(user);
+
+                    claims.Add(new Claim(_options.ClaimsIdentity.UserIdClaimType, user.Id.ToString()));
+                    claims.Add(new Claim(_options.ClaimsIdentity.UserNameClaimType, user.UserName));
+                    claims.Add(new Claim(_options.ClaimsIdentity.EmailClaimType, user.Email));
+                    foreach (var role in roles)
+                    {
+                        claims.Add(new Claim(_options.ClaimsIdentity.RoleClaimType, role));
+                    }
+
+                    var tokenDescriptor = new SecurityTokenDescriptor
+                    {
+                        Subject = new ClaimsIdentity(claims),
+                        Expires = DateTime.UtcNow.AddDays(1),
+                        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
+                    };
+
+                    var tokenHandler = new JwtSecurityTokenHandler();
+
+                    var securityToken = tokenHandler.CreateToken(tokenDescriptor);
+                    var token = tokenHandler.WriteToken(securityToken);
+
+                    tokenModel.ExpiresIn = tokenDescriptor.Expires.GetValueOrDefault();
+                    tokenModel.Token = token;
+                    tokenModel.Type = "bearer";
+                    tokenModel.Message = "User credentials are correct";
+                    tokenModel.Successfull = true;
+                }
+                else
+                {
+                    tokenModel.Message = "User credentials are incorrect";
+                    tokenModel.Successfull = false;
                 }
 
-                var tokenDescriptor = new SecurityTokenDescriptor
-                {
-                    Subject = new ClaimsIdentity(claims),
-                    Expires = DateTime.UtcNow.AddDays(1),
-                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
-                };
-
-                var tokenHandler = new JwtSecurityTokenHandler();
-
-                var securityToken = tokenHandler.CreateToken(tokenDescriptor);
-                var token = tokenHandler.WriteToken(securityToken);
-
-                return Ok(new { type = "bearer", token = token, expiresIn = tokenDescriptor.Expires });
+                return Ok(tokenModel);
             }
-            
-            return Unauthorized(new { message = "Username or password is incorrect." });
+            catch (Exception Ex)
+            {
+                return BadRequest();
+            }
         }
     }
 }

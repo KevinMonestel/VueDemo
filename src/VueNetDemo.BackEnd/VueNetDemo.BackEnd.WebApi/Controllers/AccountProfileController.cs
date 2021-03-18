@@ -12,10 +12,10 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class UserProfileController : ControllerBase
+    public class AccountProfileController : ControllerBase
     {
         private UserManager<ApplicationUser> _userManager;
-        public UserProfileController(
+        public AccountProfileController(
             UserManager<ApplicationUser> userManager
             )
         {

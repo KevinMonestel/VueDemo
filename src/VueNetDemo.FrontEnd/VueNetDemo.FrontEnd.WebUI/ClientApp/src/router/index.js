@@ -2,6 +2,8 @@
 import Home from "@/views/home/Home.vue";
 import Counter from "@/views/counter/Counter.vue";
 import FetchData from "@/views/fetchData/FetchData.vue";
+import Login from "@/views/Account/Login.vue";
+import Register from "@/views/Account/Register.vue";
 
 const routes = [
     {
@@ -18,6 +20,16 @@ const routes = [
         path: "/FetchData",
         name: "FetchData",
         component: FetchData,
+    },
+    {
+        path: "/Account/Login",
+        name: "Login",
+        component: Login,
+    },
+    {
+        path: "/Account/Register",
+        name: "Register",
+        component: Register,
     }
 ];
 

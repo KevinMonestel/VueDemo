@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VueNetDemo.FrontEnd.WebUI", "VueNetDemo.FrontEnd.WebUI\VueNetDemo.FrontEnd.WebUI.csproj", "{DDFAC032-3E26-44A0-BDE8-31EC4B49ECBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VueNetDemo.FrontEnd.Contract", "VueNetDemo.FrontEnd.Contract\VueNetDemo.FrontEnd.Contract.csproj", "{6A4D0841-F613-482A-86DB-540E76678CC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VueNetDemo.FrontEnd.Implementation", "VueNetDemo.FrontEnd.Implementation\VueNetDemo.FrontEnd.Implementation.csproj", "{C505B150-3E03-45F6-B7F1-7CF7A38673DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VueNetDemo.FrontEnd.Shared", "VueNetDemo.FrontEnd.Shared\VueNetDemo.FrontEnd.Shared.csproj", "{E6A7DC28-28B1-4770-898C-B67607DDA3FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{DDFAC032-3E26-44A0-BDE8-31EC4B49ECBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDFAC032-3E26-44A0-BDE8-31EC4B49ECBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDFAC032-3E26-44A0-BDE8-31EC4B49ECBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A4D0841-F613-482A-86DB-540E76678CC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A4D0841-F613-482A-86DB-540E76678CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A4D0841-F613-482A-86DB-540E76678CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A4D0841-F613-482A-86DB-540E76678CC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C505B150-3E03-45F6-B7F1-7CF7A38673DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C505B150-3E03-45F6-B7F1-7CF7A38673DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C505B150-3E03-45F6-B7F1-7CF7A38673DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C505B150-3E03-45F6-B7F1-7CF7A38673DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6A7DC28-28B1-4770-898C-B67607DDA3FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A7DC28-28B1-4770-898C-B67607DDA3FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A7DC28-28B1-4770-898C-B67607DDA3FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A7DC28-28B1-4770-898C-B67607DDA3FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

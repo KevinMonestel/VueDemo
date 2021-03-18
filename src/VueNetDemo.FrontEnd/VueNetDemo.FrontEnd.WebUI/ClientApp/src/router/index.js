@@ -2,8 +2,8 @@
 import Home from "@/views/home/Home.vue";
 import Counter from "@/views/counter/Counter.vue";
 import FetchData from "@/views/fetchData/FetchData.vue";
-import Login from "@/views/Account/Login.vue";
-import Register from "@/views/Account/Register.vue";
+import Login from "@/views/account/Login.vue";
+import Register from "@/views/account/Register.vue";
 
 const routes = [
     {

@@ -1,4 +1,5 @@
 ﻿<template>
+    <p>Login form</p>
     <form>
         <label>UserName</label>
         <input v-model="Login.username" />

@@ -10,7 +10,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Text;
-using VueNetDemo.BackEnd.WebApi.Models;
+using VueNetDemo.BackEnd.WebApi.Shared.Models;
+using VueNetDemo.BackEnd.WebApi.Shared.Models.Configurations;
+using VueNetDemo.BackEnd.WebApi.Shared.Models.Identity;
 
 namespace VueNetDemo.BackEnd.WebApi
 {

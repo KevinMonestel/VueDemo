@@ -10,7 +10,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using VueNetDemo.BackEnd.WebApi.Models;
+using VueNetDemo.BackEnd.WebApi.Shared.Models;
+using VueNetDemo.BackEnd.WebApi.Shared.Models.Account;
+using VueNetDemo.BackEnd.WebApi.Shared.Models.Configurations;
 
 namespace VueNetDemo.BackEnd.WebApi.Controllers
 {

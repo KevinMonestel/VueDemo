@@ -14,22 +14,22 @@ namespace VueNetDemo.FrontEnd.Implementation.Account
     public class AccountService : IAccountService
     {
         private readonly IConfiguration _configuration;
-        private readonly AppConfiguration _appConfiguration;
+        private readonly ApplicationSettings _applicationSettings;
 
         public AccountService(
             IConfiguration configuration,
-            AppConfiguration appConfiguration
+            ApplicationSettings applicationSettings
             )
         {
             _configuration = configuration;
-            _appConfiguration = appConfiguration;
+            _applicationSettings = applicationSettings;
         }
 
         public async Task<LoginTokenModel> Login(LoginModel viewModel)
         {
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.PostAsJsonAsync($"{_appConfiguration.APIUri}account/login", viewModel))
+                using (var response = await httpClient.PostAsJsonAsync($"{_applicationSettings.APIUri}account/login", viewModel))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace VueNetDemo.BackEnd.WebApi.Migrations
+namespace VueNetDemo.BackEnd.WebApi.Shared.Migrations
 {
     public partial class IdentityTablesRename : Migration
     {

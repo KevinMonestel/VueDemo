@@ -16,4 +16,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VueNetDemo.BackEnd.Shared\VueNetDemo.BackEnd.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

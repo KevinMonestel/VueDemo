@@ -12,7 +12,7 @@ class AuthService {
       .then(response => {
           if (response.data.successfull) {
               localStorage.setItem('user', JSON.stringify(response.data));
-          } 
+          }
 
         return response.data;
       });

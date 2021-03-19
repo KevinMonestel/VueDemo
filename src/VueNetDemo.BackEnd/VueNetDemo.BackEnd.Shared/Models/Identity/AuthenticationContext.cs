@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace VueNetDemo.BackEnd.WebApi.Models
+namespace VueNetDemo.BackEnd.WebApi.Shared.Models.Identity
 {
     public class AuthenticationContext : IdentityDbContext
     {

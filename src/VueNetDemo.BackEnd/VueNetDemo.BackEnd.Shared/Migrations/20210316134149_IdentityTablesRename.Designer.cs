@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using VueNetDemo.BackEnd.WebApi.Models;
+using VueNetDemo.BackEnd.WebApi.Shared.Models.Identity;
 
-namespace VueNetDemo.BackEnd.WebApi.Migrations
+namespace VueNetDemo.BackEnd.WebApi.Shared.Migrations
 {
     [DbContext(typeof(AuthenticationContext))]
     [Migration("20210316134149_IdentityTablesRename")]

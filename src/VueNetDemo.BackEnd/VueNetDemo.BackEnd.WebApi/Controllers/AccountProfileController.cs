@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using VueNetDemo.BackEnd.WebApi.Models;
+using VueNetDemo.BackEnd.WebApi.Shared.Models;
 
 namespace VueNetDemo.BackEnd.WebApi.Controllers
 {

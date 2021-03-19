@@ -14,22 +14,22 @@ namespace VueNetDemo.FrontEnd.WebUI
     {
         public IConfiguration _configuration { get; }
 
-        public AppConfiguration _appConfiguration;
+        public ApplicationSettings _applicationSettings;
 
         public Startup(IConfiguration configuration)
         {
             _configuration = configuration;
+
+            _applicationSettings = new ApplicationSettings();
+            _configuration.Bind("ApplicationSettings", _applicationSettings);
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
 
-            _appConfiguration = new AppConfiguration();
-            _configuration.Bind("AppConfiguration", _appConfiguration);
-
             services.AddSingleton<IAccountService, AccountService>();
-            services.AddSingleton(this._appConfiguration);
+            services.AddSingleton(this._applicationSettings);
 
             services.AddSpaStaticFiles(configuration =>
             {

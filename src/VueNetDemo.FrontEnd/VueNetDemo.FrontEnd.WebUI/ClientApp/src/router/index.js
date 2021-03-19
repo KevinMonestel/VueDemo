@@ -59,6 +59,8 @@ router.beforeEach((to, from, next) => {
 
         else {
             let user = JSON.parse(localStorage.getItem('user'))
+
+            //admin
             if (to.matched.some(record => record.meta.is_admin)) {
                 if (user.claims.find(x => x.type == 'role').value == "Admin") {
                     next()
@@ -74,9 +76,27 @@ router.beforeEach((to, from, next) => {
             } else {
                 next()
             }
+
+            //customer
+            //if (to.matched.some(record => record.meta.is_customer)) {
+            //    if (user.claims.find(x => x.type == 'role').value == "Customer") {
+            //        next()
+            //    }
+            //    else {
+            //        next({
+            //            path: '/Account/Unauthorize',
+            //            params: {
+            //                nextUrl: to.fullPath
+            //            }
+            //        });
+            //    }
+            //} else {
+            //    next()
+            //}
         }
     }
 
+    //allow anonymous
     else if (to.matched.some(record => record.meta.guest)) {
         if (localStorage.getItem('user') == null) {
             next()

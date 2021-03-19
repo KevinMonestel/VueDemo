@@ -167,7 +167,7 @@ namespace VueNetDemo.BackEnd.WebApi
                 user.UserName = "user1";
                 user.Email = "user1@localhost";
 
-                IdentityResult result = userManager.CreateAsync(user, "user").Result;
+                IdentityResult result = userManager.CreateAsync(user, "Pa$$w0rd").Result;
 
                 if (result.Succeeded)
                 {
@@ -184,7 +184,7 @@ namespace VueNetDemo.BackEnd.WebApi
                     user.UserName = "user2";
                     user.Email = "user2@localhost";
 
-                    IdentityResult result = userManager.CreateAsync(user, "user").Result;
+                    IdentityResult result = userManager.CreateAsync(user, "Pa$$w0rd").Result;
 
                     if (result.Succeeded)
                     {

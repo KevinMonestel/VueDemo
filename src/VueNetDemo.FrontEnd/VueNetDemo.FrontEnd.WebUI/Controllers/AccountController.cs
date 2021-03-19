@@ -20,6 +20,7 @@ namespace VueNetDemo.FrontEnd.WebUI.Controllers
         public async Task<LoginTokenModel> Login([FromBody] LoginModel viewModel)
         {
             var result = await _accountService.Login(viewModel);
+
             return result;
         }
     }

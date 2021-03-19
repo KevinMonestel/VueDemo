@@ -23,12 +23,26 @@
                         <li class="nav-item">
                             <router-link :to="{ name: 'FetchData' }" class="nav-link text-dark">Fetch Data</router-link>
                         </li>
-                        <li class="nav-item">
-                            <router-link :to="{ name: 'Register' }" class="nav-link text-dark">Register</router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link :to="{ name: 'Login' }" class="nav-link text-black-50">Login</router-link>
-                        </li>
+
+                        <div v-if="!currentUser" class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <router-link :to="{ name: 'Register' }" class="nav-link text-dark">Register</router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link :to="{ name: 'Login' }" class="nav-link text-black-50">Login</router-link>
+                            </li>
+                        </div>
+
+                        <div v-if="currentUser" class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">Hello {{ currentUser.claims.find(x => x.type == "email").value }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" @click.prevent="logOut">
+                                    LogOut
+                                </a>
+                            </li>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -61,6 +75,11 @@
 <script>
     export default {
         name: "NavMenu",
+        computed: {
+            currentUser() {
+                return this.$store.state.auth.user;
+            }
+        },
         data() {
             return {
                 isExpanded: false
@@ -73,6 +92,10 @@
 
             toggle() {
                 this.isExpanded = !this.isExpanded;
+            },
+            logOut() {
+                this.$store.dispatch('auth/logout');
+                this.$router.push('/Account/Login');
             }
         }
     }

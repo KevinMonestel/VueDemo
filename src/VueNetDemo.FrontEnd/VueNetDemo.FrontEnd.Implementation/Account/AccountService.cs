@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -34,6 +36,15 @@ namespace VueNetDemo.FrontEnd.Implementation.Account
                         string apiResponse = await response.Content.ReadAsStringAsync();
 
                         LoginTokenModel loginToken = JsonConvert.DeserializeObject<LoginTokenModel>(apiResponse);
+
+                        if (loginToken.Successfull)
+                        {
+                            var tokenString = loginToken.Token;
+
+                            var userClaims = new JwtSecurityToken(jwtEncodedString: tokenString).Claims.ToList();
+
+                            loginToken.Claims = userClaims;
+                        }
 
                         return loginToken;
                     }

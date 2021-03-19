@@ -5,6 +5,8 @@
                 <div v-if="message" class="alert alert-danger" role="alert">{{message}}</div>
             </div>
 
+            <h1 class="text-center">Login form</h1>
+
             <Form name="form" @submit="handleLogin" :validation-schema="schema">
                 <div class="form-group">
                     <label for="username">Username</label>

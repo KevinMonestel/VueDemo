@@ -1,6 +1,13 @@
 <template>
     <div class="hello">
-        <img src="~@/assets/img/logo.png" />
+        <p>VueNetDemo</p>
+    </div>
+
+    <div v-if="!this.$store.state.auth.user">
+        <div class="form-group">
+            <div class="alert alert-danger" role="alert">You are not logged!</div>
+        </div>
+
     </div>
 
     <div v-if="this.$store.state.auth.user">

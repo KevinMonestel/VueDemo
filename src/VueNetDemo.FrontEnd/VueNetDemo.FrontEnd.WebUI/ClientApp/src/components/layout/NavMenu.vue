@@ -21,7 +21,7 @@
                             <router-link :to="{ name: 'Counter' }" class="nav-link text-dark">Counter</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link :to="{ name: 'FetchData' }" class="nav-link text-dark">Fetch Data</router-link>
+                            <router-link :to="{ name: 'FetchData' }" class="nav-link text-dark">Fetch Data (Auth required)</router-link>
                         </li>
 
                         <div v-if="!currentUser" class="navbar-nav ml-auto">
@@ -29,16 +29,16 @@
                                 <router-link :to="{ name: 'Register' }" class="nav-link text-dark">Register</router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link :to="{ name: 'Login' }" class="nav-link text-black-50">Login</router-link>
+                                <router-link :to="{ name: 'Login' }" class="nav-link">Login</router-link>
                             </li>
                         </div>
 
-                        <div v-if="currentUser" class="navbar-nav ml-auto">
+                        <div v-if="currentUser" class="navbar-nav ml-auto" style="border-left: solid 1px #eee">
                             <li class="nav-item">
-                                <a class="nav-link text-dark">Hello {{ currentUser.claims.find(x => x.type == "email").value }}</a>
+                                <a class="nav-link text-black-50">Hello {{ currentUser.claims.find(x => x.type == "email").value }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" @click.prevent="logOut">
+                                <a class="nav-link text-dark" href="#" @click.prevent="logOut">
                                     LogOut
                                 </a>
                             </li>
@@ -51,27 +51,10 @@
 </template>
 
 
-<style>
-    a.navbar-brand {
-        white-space: normal;
-        text-align: center;
-        word-break: break-all;
-    }
+<style scoped>
 
-    html {
-        font-size: 14px;
-    }
-
-    @media (min-width: 768px) {
-        html {
-            font-size: 16px;
-        }
-    }
-
-    .box-shadow {
-        box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-    }
 </style>
+
 <script>
     export default {
         name: "NavMenu",

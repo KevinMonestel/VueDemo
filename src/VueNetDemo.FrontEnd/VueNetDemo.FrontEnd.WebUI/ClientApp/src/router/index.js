@@ -22,8 +22,7 @@ const routes = [
         name: "FetchData",
         component: FetchData,
         meta: {
-            requiresAuth: true,
-            is_admin: true
+            requiresAuth: true
         }
     },
     {
@@ -76,23 +75,6 @@ router.beforeEach((to, from, next) => {
             } else {
                 next()
             }
-
-            //customer
-            //if (to.matched.some(record => record.meta.is_customer)) {
-            //    if (user.claims.find(x => x.type == 'role').value == "Customer") {
-            //        next()
-            //    }
-            //    else {
-            //        next({
-            //            path: '/Account/Unauthorize',
-            //            params: {
-            //                nextUrl: to.fullPath
-            //            }
-            //        });
-            //    }
-            //} else {
-            //    next()
-            //}
         }
     }
 

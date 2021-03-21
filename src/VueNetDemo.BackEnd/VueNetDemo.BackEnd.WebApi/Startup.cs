@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Text;
+using VueNetDemo.BackEnd.WebApi.Hubs;
 using VueNetDemo.BackEnd.WebApi.Shared.Models;
 using VueNetDemo.BackEnd.WebApi.Shared.Models.Configurations;
 using VueNetDemo.BackEnd.WebApi.Shared.Models.Identity;
@@ -28,6 +29,8 @@ namespace VueNetDemo.BackEnd.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSignalR();
 
             //Inject AppSettings
             services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
@@ -118,6 +121,7 @@ namespace VueNetDemo.BackEnd.WebApi
                 builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
                 .AllowAnyHeader()
                 .AllowAnyMethod()
+                .AllowCredentials()
             );
 
             app.UseHttpsRedirection();
@@ -133,6 +137,7 @@ namespace VueNetDemo.BackEnd.WebApi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<NotificationHub>("api/chatHub");
             });
         }
 

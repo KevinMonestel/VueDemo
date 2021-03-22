@@ -137,7 +137,7 @@ namespace VueNetDemo.BackEnd.WebApi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<NotificationHub>("api/chatHub");
+                endpoints.MapHub<NotificationHub>("api/notificationHub");
             });
         }
 

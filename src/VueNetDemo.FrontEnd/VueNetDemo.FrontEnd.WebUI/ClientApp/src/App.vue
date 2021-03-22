@@ -27,7 +27,7 @@
         name: 'App',
         data() {
             return {
-                connection: new HubConnectionBuilder().withUrl("http://localhost:38944/api/chatHub").build(),
+                connection: new HubConnectionBuilder().withUrl("http://localhost:38944/api/notificationHub").build(),
                 notificationContent: ""
             };
         },

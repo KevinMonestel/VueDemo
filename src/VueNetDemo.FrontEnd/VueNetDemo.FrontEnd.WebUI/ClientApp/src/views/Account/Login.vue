@@ -68,25 +68,26 @@
                 this.loading = true;
                 this.message = null;
 
-                if (this.Login.username && this.Login.password) {
-                    this.$store.dispatch('auth/login', this.Login).then(
-                        (result) => {
-                            if (result.successfull) {
-                                this.$router.push('/');
-                            } else {
-                                this.message = result.message;
-                                this.loading = false;
+                this.$store.dispatch('auth/login', this.Login).then(
+                    (result) => {
+                        if (result.successfull) {
+                            if (this.$route.query.returnUrl) {
+                                return this.$router.push(this.$route.query.returnUrl);
                             }
-                        },
-                        error => {
+                            this.$router.push('/');
+                        } else {
+                            this.message = result.message;
                             this.loading = false;
-                            this.message =
-                                (error.response && error.response.data && error.response.data.message) ||
-                                error.message ||
-                                error.toString();
                         }
-                    );
-                }
+                    },
+                    error => {
+                        this.loading = false;
+                        this.message =
+                            (error.response && error.response.data && error.response.data.message) ||
+                            error.message ||
+                            error.toString();
+                    }
+                );
             }
         },
         computed: {

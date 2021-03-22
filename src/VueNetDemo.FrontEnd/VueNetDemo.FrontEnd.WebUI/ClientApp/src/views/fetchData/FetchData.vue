@@ -27,7 +27,7 @@
 
 
 <script>
-    import WeatherForecastService from '@/services/weatherForecastService'
+    import WeatherForecastService from '@/services/weatherForecast/weatherForecast.service'
 
     export default {
         name: "FetchData",

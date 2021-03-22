@@ -26,9 +26,9 @@ const routes = [
         }
     },
     {
-        path: "/Account/Login",
+        path: "/Account/Login/:returnUrl?",
         name: "Login",
-        component: Login
+        component: Login,
     },
     {
         path: "/Account/Register",
@@ -36,7 +36,7 @@ const routes = [
         component: Register
     },
     {
-        path: "/Account/Unauthorize",
+        path: "/Account/Unauthorize/:returnUrl?",
         name: "Unauthorize",
         component: Unauthorize
     }
@@ -52,7 +52,7 @@ router.beforeEach((to, from, next) => {
         if (localStorage.getItem('user') == null) {
             next({
                 path: '/Account/Login',
-                params: { nextUrl: to.fullPath }
+                query: { returnUrl: to.fullPath }
             })
         }
 
@@ -68,7 +68,7 @@ router.beforeEach((to, from, next) => {
                     next({
                         path: '/Account/Unauthorize',
                         params: {
-                            nextUrl: to.fullPath
+                            returnUrl: to.fullPath
                         }
                     });
                 }

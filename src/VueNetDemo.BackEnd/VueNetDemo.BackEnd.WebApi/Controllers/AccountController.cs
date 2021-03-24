@@ -97,6 +97,7 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
                     tokenModel.Type = "bearer";
                     tokenModel.Message = "User credentials are correct";
                     tokenModel.Successfull = true;
+                    tokenModel.Claims = claims;
                 }
                 else
                 {

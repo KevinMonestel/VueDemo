@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace VueNetDemo.BackEnd.WebApi.Shared.Models.Account
@@ -18,5 +19,6 @@ namespace VueNetDemo.BackEnd.WebApi.Shared.Models.Account
         public DateTime ExpiresIn { get; set; }
         public bool Successfull { get; set; }
         public string Message { get; set; }
+        public List<Claim> Claims { get; set; }
     }
 }

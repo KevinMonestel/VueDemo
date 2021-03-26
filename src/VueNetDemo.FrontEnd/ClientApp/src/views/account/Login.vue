@@ -70,13 +70,13 @@
 
                 this.$store.dispatch('auth/login', this.Login).then(
                     (result) => {
-                        if (result.successfull) {
+                        if (result.token) {
                             if (this.$route.query.returnUrl) {
                                 return this.$router.push(this.$route.query.returnUrl);
                             }
                             this.$router.push('/');
                         } else {
-                            this.message = result.message;
+                            this.message = result.error;
                             this.loading = false;
                         }
                     },

@@ -75,6 +75,7 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
                     claims.Add(new Claim(_options.ClaimsIdentity.UserIdClaimType, user.Id.ToString()));
                     claims.Add(new Claim(_options.ClaimsIdentity.UserNameClaimType, user.UserName));
                     claims.Add(new Claim(_options.ClaimsIdentity.EmailClaimType, user.Email));
+
                     foreach (var role in roles)
                     {
                         claims.Add(new Claim(_options.ClaimsIdentity.RoleClaimType, role));
@@ -92,17 +93,12 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
                     var securityToken = tokenHandler.CreateToken(tokenDescriptor);
                     var token = tokenHandler.WriteToken(securityToken);
 
-                    tokenModel.ExpiresIn = tokenDescriptor.Expires.GetValueOrDefault();
                     tokenModel.Token = token;
-                    tokenModel.Type = "bearer";
-                    tokenModel.Message = "User credentials are correct";
-                    tokenModel.Successfull = true;
                     tokenModel.Claims = claims;
                 }
                 else
                 {
-                    tokenModel.Message = "User credentials are incorrect";
-                    tokenModel.Successfull = false;
+                    return Unauthorized(new { Error = "User credential are incorrect" });
                 }
 
                 return Ok(tokenModel);

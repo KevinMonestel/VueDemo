@@ -14,7 +14,6 @@
         User info (state):
         <code>
             <p>Token:  {{JSON.stringify(this.$store.state.auth.user.token)}}</p>
-            <p>Token (Expires in):  {{JSON.stringify(this.$store.state.auth.user.expiresIn)}}</p>
             <p>Email:  {{JSON.stringify(this.$store.state.auth.user.claims.find(x => x.type.includes('email')).value)}}</p>
             <p>UserName:  {{JSON.stringify(this.$store.state.auth.user.claims.find(x => x.type.includes('name')).value)}}</p>
             <p>Id:  {{JSON.stringify(this.$store.state.auth.user.claims.find(x => x.type.includes('identifier')).value)}}</p>

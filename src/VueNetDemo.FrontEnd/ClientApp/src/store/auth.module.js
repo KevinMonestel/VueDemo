@@ -13,7 +13,7 @@ export const auth = {
         login({ commit }, user) {
             return AuthService.login(user).then(
                 result => {
-                    if (result.successfull) {
+                    if (result.token) {
                         commit('loginSuccess', result);
                     } else {
                         commit('loginFailure');

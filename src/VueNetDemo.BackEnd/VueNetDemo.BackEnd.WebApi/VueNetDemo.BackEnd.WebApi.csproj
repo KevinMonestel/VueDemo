@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>03719aad-1dc7-4be9-8b1f-d5f2e5715756</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\kevin.monestel\Desktop\Personal Repos and Projects\VueDemo\src\VueNetDemo.BackEnd\VueNetDemo.BackEnd.WebApi\VueNetDemo.BackEnd.WebApi.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\kevin.monestel\Desktop\Personal Repos and Projects\VueDemo\src\VueNetDemo.BackEnd\VueNetDemo.BackEnd.WebApi\VueNetDemo.BackEnd.WebApi.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

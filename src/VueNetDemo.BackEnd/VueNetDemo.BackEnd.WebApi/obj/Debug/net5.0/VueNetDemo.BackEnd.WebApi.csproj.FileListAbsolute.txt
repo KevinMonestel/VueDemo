@@ -68,3 +68,5 @@ C:\Users\kevin.monestel\Desktop\Personal Repos and Projects\VueDemo\src\VueNetDe
 C:\Users\kevin.monestel\Desktop\Personal Repos and Projects\VueDemo\src\VueNetDemo.BackEnd\VueNetDemo.BackEnd.WebApi\obj\Debug\net5.0\VueNetDemo.BackEnd.WebApi.genruntimeconfig.cache
 C:\Users\kevin.monestel\Desktop\Personal Repos and Projects\VueDemo\src\VueNetDemo.BackEnd\VueNetDemo.BackEnd.WebApi\bin\Debug\net5.0\libman.json
 C:\Users\kevin.monestel\Desktop\Personal Repos and Projects\VueDemo\src\VueNetDemo.BackEnd\VueNetDemo.BackEnd.WebApi\obj\Debug\net5.0\VueNetDemo.BackEnd.WebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\kevin.monestel\Desktop\Personal Repos and Projects\VueDemo\src\VueNetDemo.BackEnd\VueNetDemo.BackEnd.WebApi\bin\Debug\net5.0\web.config
+C:\Users\kevin.monestel\Desktop\Personal Repos and Projects\VueDemo\src\VueNetDemo.BackEnd\VueNetDemo.BackEnd.WebApi\bin\Debug\net5.0\VueNetDemo.BackEnd.WebApi.xml

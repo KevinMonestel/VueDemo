@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("03719aad-1dc7-4be9-8b1f-d5f2e5715756")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("VueNetDemo.BackEnd.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

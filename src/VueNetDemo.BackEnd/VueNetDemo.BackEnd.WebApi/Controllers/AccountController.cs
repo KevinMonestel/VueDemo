@@ -62,12 +62,18 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var tokenModel = new LoginTokenModel();
-            var user = await _userManager.FindByNameAsync(model.UserName);
             IdentityOptions _options = new IdentityOptions();
             List<Claim> claims = new List<Claim>();
 
             try
             {
+                var user = await _userManager.FindByNameAsync(model.UserName);
+
+                if(user is null)
+                {
+                    user = await _userManager.FindByEmailAsync(model.UserName);
+                }
+
                 if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
                 {
                     var roles = await _userManager.GetRolesAsync(user);

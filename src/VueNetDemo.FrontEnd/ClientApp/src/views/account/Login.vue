@@ -9,7 +9,7 @@
 
             <Form name="form" @submit="handleLogin" :validation-schema="schema">
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="username">Username or email</label>
                     <Field v-model="Login.username"
                            type="text"
                            class="form-control"

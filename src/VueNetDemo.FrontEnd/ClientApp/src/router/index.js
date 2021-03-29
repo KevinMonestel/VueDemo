@@ -22,7 +22,7 @@ const routes = [
         name: "FetchData",
         component: FetchData,
         meta: {
-            requiresAuth: false
+            requiresAuth: true
         }
     },
     {
@@ -54,39 +54,10 @@ router.beforeEach((to, from, next) => {
                 path: '/Account/Login',
                 query: { returnUrl: to.fullPath }
             })
+        }else{
+            next();
         }
-
-        else {
-            let user = JSON.parse(localStorage.getItem('user'))
-
-            //admin
-            if (to.matched.some(record => record.meta.is_admin)) {
-                if (user.claims.find(x => x.type == 'role').value == "Admin") {
-                    next()
-                }
-                else {
-                    next({
-                        path: '/Account/Unauthorize',
-                        params: {
-                            returnUrl: to.fullPath
-                        }
-                    });
-                }
-            } else {
-                next()
-            }
-        }
-    }
-
-    //allow anonymous
-    else if (to.matched.some(record => record.meta.guest)) {
-        if (localStorage.getItem('user') == null) {
-            next()
-        }
-        else {
-            next({ name: 'userboard' })
-        }
-    } else {
+    }else{
         next()
     }
 });

@@ -1,15 +1,12 @@
-import { Request } from '@/axios/API-services/http-main.service';
-import authHeader from './auth-header';
-
-const API_URL = '/test/';
+import VueJwtDecode from "vue-jwt-decode";
 
 class UserService {
-  getPublicContent() {
-    return Request.get(API_URL + 'all');
-  }
-
-  getAdminBoard() {
-    return Request.get(API_URL + 'admin', { headers: authHeader() });
+  getUserClaims(){
+    if(this.$store.state.auth.user){
+        let decoded = VueJwtDecode.decode(this.$store.state.auth.user.token)
+        return decoded;
+      }
+      return null;
   }
 }
 

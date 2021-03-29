@@ -35,7 +35,7 @@
 
                         <div v-if="currentUser" class="navbar-nav ml-auto" style="border-left: solid 1px #eee">
                             <li class="nav-item">
-                                <a class="nav-link text-black-50">Hello {{ currentUser.claims.find(x => x.type.includes("email")).value }}</a>
+                                <a class="nav-link text-black-50">Hello {{currentUser.unique_name}}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="#" @click.prevent="logOut">
@@ -56,11 +56,17 @@
 </style>
 
 <script>
+    import VueJwtDecode from "vue-jwt-decode";
+
     export default {
         name: "NavMenu",
         computed: {
             currentUser() {
-                return this.$store.state.auth.user;
+               if(this.$store.state.auth.user){
+                let decoded = VueJwtDecode.decode(this.$store.state.auth.user.token)
+                return decoded;
+            }
+            return null;
             }
         },
         data() {

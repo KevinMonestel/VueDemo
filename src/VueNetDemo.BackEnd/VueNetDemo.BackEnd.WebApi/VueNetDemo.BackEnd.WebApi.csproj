@@ -26,6 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VueNetDemo.BackEnd.Contract\VueNetDemo.BackEnd.Contract.csproj" />
+    <ProjectReference Include="..\VueNetDemo.BackEnd.Implementation\VueNetDemo.BackEnd.Implementation.csproj" />
     <ProjectReference Include="..\VueNetDemo.BackEnd.Shared\VueNetDemo.BackEnd.Shared.csproj" />
   </ItemGroup>
 

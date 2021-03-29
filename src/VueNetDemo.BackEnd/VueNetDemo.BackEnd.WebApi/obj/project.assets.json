@@ -1556,6 +1556,44 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "VueNetDemo.BackEnd.Contract/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "VueNetDemo.BackEnd.Implementation": "1.0.0",
+          "VueNetDemo.BackEnd.Persistance": "1.0.0",
+          "VueNetDemo.BackEnd.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/VueNetDemo.BackEnd.Contract.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VueNetDemo.BackEnd.Contract.dll": {}
+        }
+      },
+      "VueNetDemo.BackEnd.Implementation/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "VueNetDemo.BackEnd.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/VueNetDemo.BackEnd.Implementation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VueNetDemo.BackEnd.Implementation.dll": {}
+        }
+      },
+      "VueNetDemo.BackEnd.Persistance/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/VueNetDemo.BackEnd.Persistance.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VueNetDemo.BackEnd.Persistance.dll": {}
+        }
+      },
       "VueNetDemo.BackEnd.Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -5751,6 +5789,21 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "VueNetDemo.BackEnd.Contract/1.0.0": {
+      "type": "project",
+      "path": "../VueNetDemo.BackEnd.Contract/VueNetDemo.BackEnd.Contract.csproj",
+      "msbuildProject": "../VueNetDemo.BackEnd.Contract/VueNetDemo.BackEnd.Contract.csproj"
+    },
+    "VueNetDemo.BackEnd.Implementation/1.0.0": {
+      "type": "project",
+      "path": "../VueNetDemo.BackEnd.Implementation/VueNetDemo.BackEnd.Implementation.csproj",
+      "msbuildProject": "../VueNetDemo.BackEnd.Implementation/VueNetDemo.BackEnd.Implementation.csproj"
+    },
+    "VueNetDemo.BackEnd.Persistance/1.0.0": {
+      "type": "project",
+      "path": "../VueNetDemo.BackEnd.Persistance/VueNetDemo.BackEnd.Persistance.csproj",
+      "msbuildProject": "../VueNetDemo.BackEnd.Persistance/VueNetDemo.BackEnd.Persistance.csproj"
+    },
     "VueNetDemo.BackEnd.Shared/1.0.0": {
       "type": "project",
       "path": "../VueNetDemo.BackEnd.Shared/VueNetDemo.BackEnd.Shared.csproj",
@@ -5765,6 +5818,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.4",
       "Newtonsoft.Json >= 12.0.3",
       "Swashbuckle.AspNetCore >= 5.6.3",
+      "VueNetDemo.BackEnd.Contract >= 1.0.0",
+      "VueNetDemo.BackEnd.Implementation >= 1.0.0",
       "VueNetDemo.BackEnd.Shared >= 1.0.0"
     ]
   },
@@ -5805,6 +5860,12 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.Contract\\VueNetDemo.BackEnd.Contract.csproj": {
+              "projectPath": "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.Contract\\VueNetDemo.BackEnd.Contract.csproj"
+            },
+            "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.Implementation\\VueNetDemo.BackEnd.Implementation.csproj": {
+              "projectPath": "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.Implementation\\VueNetDemo.BackEnd.Implementation.csproj"
+            },
             "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.Shared\\VueNetDemo.BackEnd.Shared.csproj": {
               "projectPath": "C:\\Users\\kevin.monestel\\Desktop\\Personal Repos and Projects\\VueDemo\\src\\VueNetDemo.BackEnd\\VueNetDemo.BackEnd.Shared\\VueNetDemo.BackEnd.Shared.csproj"
             }

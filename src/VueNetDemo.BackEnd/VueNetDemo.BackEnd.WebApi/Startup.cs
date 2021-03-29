@@ -10,6 +10,10 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Text;
+using VueNetDemo.BackEnd.Contract.Account;
+using VueNetDemo.BackEnd.Contract.Helpers;
+using VueNetDemo.BackEnd.Implementation.Account;
+using VueNetDemo.BackEnd.Implementation.Helpers;
 using VueNetDemo.BackEnd.WebApi.Hubs;
 using VueNetDemo.BackEnd.WebApi.Shared.Models;
 using VueNetDemo.BackEnd.WebApi.Shared.Models.Configurations;
@@ -106,6 +110,9 @@ namespace VueNetDemo.BackEnd.WebApi
                     }
                 });
             });
+
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IUserTokenHelper, UserTokenHelper>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)

@@ -39,6 +39,8 @@
           "Microsoft.EntityFrameworkCore.Tools": "5.0.4",
           "Newtonsoft.Json": "12.0.3",
           "Swashbuckle.AspNetCore": "5.6.3",
+          "VueNetDemo.BackEnd.Contract": "1.0.0",
+          "VueNetDemo.BackEnd.Implementation": "1.0.0",
           "VueNetDemo.BackEnd.Shared": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -1377,6 +1379,38 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
+        }
+      },
+      "VueNetDemo.BackEnd.Contract/1.0.0": {
+        "dependencies": {
+          "VueNetDemo.BackEnd.Implementation": "1.0.0",
+          "VueNetDemo.BackEnd.Persistance": "1.0.0",
+          "VueNetDemo.BackEnd.Shared": "1.0.0"
+        },
+        "runtime": {
+          "VueNetDemo.BackEnd.Contract.dll": {}
+        },
+        "compile": {
+          "VueNetDemo.BackEnd.Contract.dll": {}
+        }
+      },
+      "VueNetDemo.BackEnd.Implementation/1.0.0": {
+        "dependencies": {
+          "VueNetDemo.BackEnd.Shared": "1.0.0"
+        },
+        "runtime": {
+          "VueNetDemo.BackEnd.Implementation.dll": {}
+        },
+        "compile": {
+          "VueNetDemo.BackEnd.Implementation.dll": {}
+        }
+      },
+      "VueNetDemo.BackEnd.Persistance/1.0.0": {
+        "runtime": {
+          "VueNetDemo.BackEnd.Persistance.dll": {}
+        },
+        "compile": {
+          "VueNetDemo.BackEnd.Persistance.dll": {}
         }
       },
       "VueNetDemo.BackEnd.Shared/1.0.0": {
@@ -3795,6 +3829,21 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "VueNetDemo.BackEnd.Contract/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "VueNetDemo.BackEnd.Implementation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "VueNetDemo.BackEnd.Persistance/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "VueNetDemo.BackEnd.Shared/1.0.0": {
       "type": "project",

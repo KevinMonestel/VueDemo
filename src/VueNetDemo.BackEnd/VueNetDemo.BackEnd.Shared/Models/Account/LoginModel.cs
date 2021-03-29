@@ -12,9 +12,11 @@ namespace VueNetDemo.BackEnd.WebApi.Shared.Models.Account
         public string Password { get; set; }
     }
 
-    public class LoginTokenModel
+    public enum LoginResult
     {
-        public string Token { get; set; }
-        public List<Claim> Claims { get; set; }
+        Successful,
+        IncorrectCredentials,
+        Failed,
+        locked
     }
 }

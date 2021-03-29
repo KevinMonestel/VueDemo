@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using VueNetDemo.BackEnd.Implementation.Account;
 using VueNetDemo.BackEnd.WebApi.Shared.Models;
 
 namespace VueNetDemo.BackEnd.WebApi.Controllers
@@ -14,29 +13,39 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
     [ApiController]
     public class AccountProfileController : ControllerBase
     {
-        private UserManager<ApplicationUser> _userManager;
+        private readonly IAccountService _accountService;
+
         public AccountProfileController(
-            UserManager<ApplicationUser> userManager
+            IAccountService accountService
             )
         {
-            _userManager = userManager;
+            _accountService = accountService;
         }
 
         [HttpGet]
         [Authorize]
-        public async Task<Object> Get() {
-            string userId = User.Claims.First(c => c.Type.Contains("nameidentifier")).Value;
-            var user = await _userManager.FindByIdAsync(userId);
-
-            return new
+        public async Task<Object> Get()
+        {
+            try
             {
-                 user.Email,
-                 user.UserName
-            };
+                string id = User.Claims.First(c => c.Type.Contains("nameidentifier")).Value;
+
+                var result = await _accountService.GetAsync(id);
+
+                if (result is null)
+                    return NotFound();
+
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
         [HttpGet]
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public string OnlyAdminMethod()
         {
             return "Web method for Admin";

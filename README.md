@@ -1,1 +1,1 @@
-Proyecto que simula una autenticación de usuario mediante un API en .Net Core 5, configurada con identity y JWT (claims) para el back end. La capa de front end, es un proyecto básico de Vue.js con Vuex y Rutas.
+Proyecto que simula una autenticación de usuario mediante un API en .Net Core 5, configurada con identity y JWT (claims) para el back end y aplicación de SignalR. La capa de front end, es un proyecto básico de Vue.js con Vuex, Vee-validate, Yup y Rutas.

@@ -24,7 +24,7 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<Object> Get()
+        public async Task<IActionResult> Get()
         {
             try
             {
@@ -35,7 +35,7 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
                 if (result is null)
                     return NotFound();
 
-                return result;
+                return Ok(new { user = result });
 
             }
             catch (Exception ex)

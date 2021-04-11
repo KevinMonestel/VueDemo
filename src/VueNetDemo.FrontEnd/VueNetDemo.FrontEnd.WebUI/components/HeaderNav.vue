@@ -17,7 +17,7 @@
                 </li>
 
                 <li v-if="!this.$auth.loggedIn" class="md:mr-2 text-center mb-2 md:mb-0">
-                    <NuxtLink class="rounded-xl px-3 py-1 text-white bg-green-500 border-2 border-green-500" to="account/login">Log In</NuxtLink>
+                    <NuxtLink class="rounded-xl px-3 py-1 text-white bg-green-500 border-2 border-green-500" to="account/login">Sign In</NuxtLink>
                 </li>
 
                 <li  v-if="!this.$auth.loggedIn" class="md:mr-2 text-center">
@@ -29,7 +29,7 @@
                 </li>
                 
                 <li  v-if="this.$auth.loggedIn" class="hover:bg-green-100 px-2 py-1 mb-2 transition delay-75 md:rounded md:mr-2 md:mb-0 text-gray-500">
-                    <button v-on:click="LogOutAction()">Log out</button>
+                    <button v-on:click="LogOutAction()">Sign out</button>
                 </li>
             </ul>
         </nav>

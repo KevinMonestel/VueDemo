@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using VueNetDemo.BackEnd.WebApi.Shared.Models;
 using VueNetDemo.BackEnd.WebApi.Shared.Models.Account;
@@ -12,5 +13,7 @@ namespace VueNetDemo.BackEnd.Implementation.Account
         Task<IdentityResult> RegisterAsync(ApplicationUserModel model);
 
         Task<ApplicationUser> GetAsync(string id);
+
+        Task<IList<string>> GetRolesAsync(ApplicationUser user);
     }
 }

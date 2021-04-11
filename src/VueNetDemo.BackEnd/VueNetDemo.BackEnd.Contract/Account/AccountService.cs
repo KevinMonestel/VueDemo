@@ -86,5 +86,19 @@ namespace VueNetDemo.BackEnd.Contract.Account
                 return null;
             }
         }
+
+        public async Task<IList<string>> GetRolesAsync(ApplicationUser user)
+        {
+            try
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+
+                return roles;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

@@ -1,12 +1,12 @@
 <template>
     <div>
-        Counter
+        <Nuxt/>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'counter',
+        
     }
 </script>
 

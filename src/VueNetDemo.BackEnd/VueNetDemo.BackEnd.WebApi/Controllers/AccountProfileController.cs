@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using VueNetDemo.BackEnd.Implementation.Account;
 using VueNetDemo.BackEnd.WebApi.Shared.Models;
+using VueNetDemo.BackEnd.WebApi.Shared.Models.Account;
 
 namespace VueNetDemo.BackEnd.WebApi.Controllers
 {
@@ -35,7 +36,17 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
                 if (result is null)
                     return NotFound();
 
-                return Ok(new { user = result });
+                var roles = await _accountService.GetRolesAsync(result);
+
+                var model = new ApplicationUserModel
+                {
+                    Email = result.Email,
+                    UserName = result.UserName,
+                    Password = string.Empty,
+                    Role = roles.FirstOrDefault()
+                };
+
+                return Ok(new { user = model });
 
             }
             catch (Exception ex)

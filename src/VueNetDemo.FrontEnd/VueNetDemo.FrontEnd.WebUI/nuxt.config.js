@@ -65,12 +65,17 @@ export default {
   //   middleware: ['auth']
   // },
 
-  auth: {  
+  router: {
+    middleware: ['auth']
+  },
+
+  auth: {
+    scopeKey: 'role',
     redirect: {
       login: '/account/login',
       logout: '/',
       callback: '/account/login',
-      home: '/'
+      home: '/',
    },
     strategies: {
       local: {

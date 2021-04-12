@@ -4,24 +4,22 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'VueNetDemo.FrontEnd.WebUI',
+    title: "VueNetDemo.FrontEnd.WebUI",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    'node-snackbar/dist/snackbar.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: ["~/plugins/snackbar.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -29,30 +27,36 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
+    "@nuxt/typescript-build",
+
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    "@nuxtjs/tailwindcss"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
+    "@nuxtjs/axios",
 
-    '@nuxtjs/auth-next'
+    // https://go.nuxtjs.dev/pwa
+    "@nuxtjs/pwa",
+
+    "@nuxtjs/auth-next"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://localhost:38944'
+    baseURL: "http://localhost:38944",
+
+    requestInterceptor: (config, { store }) => {},
+
+    responseInterceptor: (res, ctx) => {}
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
+      lang: "en"
     }
   },
 
@@ -66,34 +70,35 @@ export default {
   // },
 
   router: {
-    middleware: ['auth']
+    middleware: ["auth"]
   },
 
   auth: {
-    scopeKey: 'role',
+    scopeKey: "role",
+
     redirect: {
-      login: '/account/login',
-      logout: '/',
-      callback: '/account/login',
-      home: '/',
-   },
+      login: "/account/login",
+      logout: "/account/login",
+      home: "/"
+    },
+
     strategies: {
       local: {
         token: {
-          property: 'token',
-          // required: true,
-          // type: 'Bearer'
+          property: "token"
         },
+
         user: {
-          property: 'user',
-          // autoFetch: true
+          property: "user"
         },
+
         endpoints: {
-          login: { url: '/api/account/login', method: 'post' },
+          login: { url: "/api/account/login", method: "post" },
           logout: false,
-          user: { url: '/api/AccountProfile/get', method: 'get' }
+          user: { url: "/api/accountprofile/get", method: "get" },
+          refresh: { url: "/api/account/refresh", method: "get" }
         }
       }
     }
   }
-}
+};

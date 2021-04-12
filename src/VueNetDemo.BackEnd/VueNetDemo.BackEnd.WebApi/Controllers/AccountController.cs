@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -65,6 +66,29 @@ namespace VueNetDemo.BackEnd.WebApi.Controllers
                 var token = await _userTokenHelper.GenerateAsync(model);
 
                 return Ok(new { token });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Refresh()
+        {
+            try
+            {
+                string id = User.Claims.First(c => c.Type.Contains("nameidentifier")).Value;
+                LoginModel model = new LoginModel();
+
+                var result = await _accountService.GetAsync(id);
+
+                model.UserName = result.UserName;
+
+                var refreshToken = await _userTokenHelper.GenerateAsync(model);
+
+                return Ok(new { refreshToken });
             }
             catch (Exception ex)
             {

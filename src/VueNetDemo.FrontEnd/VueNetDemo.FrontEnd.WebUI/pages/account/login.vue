@@ -42,6 +42,7 @@
 
 <script>
     import LoginModel from '../../models/account/login.model';
+    import Snackbar from 'node-snackbar';
 
     export default {
         layout: 'login',
@@ -59,7 +60,11 @@
             async LoginAction(){
                 try {
                     let handleSuccess = response => {
-                        this.$router.push('/');
+                        Snackbar.show(
+                            {
+                                text: `Welcome ${this.loginModel.username}!`,
+                                pos: 'bottom-right'
+                            });
                     }
 
                     let handleFailure = error => {
@@ -72,6 +77,7 @@
 
                     this.$auth.loginWith('local', { data: this.loginModel }).then(handleSuccess).catch(handleFailure);
 
+                    this.$auth.refreshTokens()
                 } catch (err) {
                     console.log(err)
                 }
@@ -80,6 +86,5 @@
     }
 </script>
 
-<style scoped>
-    
+<style>
 </style>

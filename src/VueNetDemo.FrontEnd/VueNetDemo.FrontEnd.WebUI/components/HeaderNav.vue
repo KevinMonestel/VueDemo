@@ -1,5 +1,5 @@
 <template>
-    <header class="shadow-md flex flex-col py-3 px-5 bg-white md:fixed md:w-full md:px-20 md:flex-row">
+    <header class="shadow-md flex flex-col py-3 px-5 bg-white sticky top-0 w-full md:px-20 md:flex-row">
         <div class="flex justify-between items-center">
             <NuxtLink to="/">
                 <img src="https://www.ns-logo.com/wp-content/uploads/2020/07/logo-icon-png-8.png" alt="logo" class="w-10">

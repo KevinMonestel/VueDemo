@@ -1,41 +1,34 @@
 <template>
-    <div class="pt-20">
+    <div class="w-full container mx-auto md:w-9/12">
          <p>
           <strong>Username:</strong>
-          {{ loggedInUser.userName }}
+          {{ $auth.user.userName }}
         </p>
         <p>
           <strong>Email:</strong>
-          {{ loggedInUser.email }}
+          {{ $auth.user.email }}
         </p>
         <p>
-          <strong>Admin:</strong>
-          {{ this.$auth.hasScope('Admin') }}
+          <strong>Is admin:</strong>
+          {{ $auth.user.role === "Admin" }}
         </p>
         <p>
-          <strong>Customer:</strong>
-           {{ this.$auth.hasScope('Customer') }}
+          <strong>Is customer:</strong>
+          {{ $auth.user.role === "Customer" }}
         </p>
         <p>
-          <strong>Other:</strong>
-           {{ this.$auth.hasScope('Other') }}
+          <strong>User info ($auth.user):</strong>
+          {{ $auth.user }}
         </p>
-        {{loggedInUser}}
     </div>
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
-
     export default {
         name: 'account',
-
-        computed: {
-            ...mapGetters(['loggedInUser'])
-        }
     }
 </script>
 
-<style lang="scss" scoped>
+<style>
 
 </style>

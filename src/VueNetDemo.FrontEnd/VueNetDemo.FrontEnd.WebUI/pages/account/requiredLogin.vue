@@ -1,15 +1,13 @@
 <template>
-    <div>
-        Counter
+    <div class="w-full container mx-auto md:w-9/12">
+         <p>Fine</p>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'counter',
-    }
+  export default {
+    name: 'requiredLogin'
+  };
 </script>
 
-<style scoped>
-
-</style>
+<style></style>

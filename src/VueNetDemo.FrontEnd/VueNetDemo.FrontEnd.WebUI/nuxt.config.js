@@ -76,6 +76,12 @@ export default {
   auth: {
     scopeKey: "role",
 
+    localStorage: false,
+
+    cookie: {
+      prefix: 'auth.',
+    },
+
     redirect: {
       login: "/account/login",
       logout: "/account/login",

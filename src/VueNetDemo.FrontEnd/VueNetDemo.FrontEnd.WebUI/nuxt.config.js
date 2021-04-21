@@ -79,7 +79,7 @@ export default {
     localStorage: false,
 
     cookie: {
-      prefix: 'auth.',
+      prefix: 'auth.'
     },
 
     redirect: {
